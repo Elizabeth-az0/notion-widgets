@@ -24,37 +24,37 @@
       background: none;
     }
 
-    /* Estilos para el cuerpo: fuente del sistema, sin márgenes, padding para espacio, flexbox para centrar el widget vertical y horizontalmente */
+    /* Estilos para el cuerpo: fuente del sistema, sin márgenes, padding reducido para espacio, flexbox para centrar el widget vertical y horizontalmente */
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
     }
 
-    /* Contenedor principal del widget: fondo blanco (#ffffff) para contraste, borde gris claro (#e0e0e0) para definición sutil, esquinas redondeadas, padding interno, ancho máximo responsivo */
+    /* Contenedor principal del widget: fondo blanco (#ffffff) para contraste, borde gris claro (#e0e0e0) para definición sutil, esquinas redondeadas, padding reducido, ancho máximo menor */
     .widget-container {
       background: #ffffff; /* Blanco puro para el fondo del contenedor */
       border: 1px solid #e0e0e0; /* Gris claro para un borde discreto */
       border-radius: 8px;
-      padding: 20px;
-      max-width: 400px;
+      padding: 15px;
+      max-width: 350px;
       width: 100%;
       box-shadow: none;
     }
 
-    /* Estilos para el título: tamaño grande, negrita, texto con gradiente rojo-dorado (#ff0000 a #ffd700) para estilo chino, centrado */
+    /* Estilos para el título: tamaño reducido, negrita, texto con gradiente rojo-dorado (#ff0000 a #ffd700) para estilo chino, centrado */
     h2 {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
       background: linear-gradient(135deg, #ff0000 0%, #ffd700 100%); /* Gradiente de rojo a dorado para el texto */
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin: 0 0 25px 0;
+      margin: 0 0 20px 0;
       text-align: center;
     }
 
@@ -65,21 +65,21 @@
       margin: 0;
     }
 
-    /* Elementos de lista: margen inferior pequeño para separación entre enlaces */
+    /* Elementos de lista: margen inferior reducido para separación entre enlaces */
     li {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    /* Enlaces: sin decoración de texto, color gris oscuro (#2d3748) para texto, flexbox para alinear icono y texto, padding reducido, fondo gris muy claro (#f7fafc), borde transparente para efecto hover, esquinas redondeadas */
+    /* Enlaces: sin decoración de texto, color gris oscuro (#2d3748) para texto, flexbox para alinear icono y texto, padding más pequeño, fondo gris muy claro (#f7fafc), borde transparente para efecto hover, esquinas redondeadas */
     a {
       text-decoration: none;
       color: #2d3748; /* Gris oscuro para el texto de los enlaces */
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       display: flex;
       align-items: center;
-      padding: 8px 12px;
-      border-radius: 8px;
+      padding: 6px 10px;
+      border-radius: 6px;
       background: #f7fafc; /* Gris muy claro para el fondo de los enlaces */
       border: 2px solid transparent;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
