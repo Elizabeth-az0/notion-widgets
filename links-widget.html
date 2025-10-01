@@ -19,6 +19,11 @@
   <!-- Estilos CSS embebidos para el diseño del widget -->
   <style>
 
+    /* Estilos para el elemento html: fondo blanco para asegurar cobertura completa */
+    html {
+      background-color: #ffffff;
+    }
+
     /* Estilos para el cuerpo de la página: fuente, fondo y márgenes */
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
@@ -27,7 +32,7 @@
       padding: 15px;
     }
 
-    /* Contenedor principal del widget: borde, fondo y sombras */
+    /* Contenedor principal del widget: borde, fondo blanco puro y sin sombras */
     .widget-container {
       border: 1px solid #e0e0e0;
       border-radius: 8px;
@@ -35,7 +40,6 @@
       background-color: #ffffff;
       max-width: 400px;
       margin: auto;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
     /* Estilos para el encabezado h2: tamaño, color y borde inferior */
