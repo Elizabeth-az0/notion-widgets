@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner Widget</title>
+    <style>
+        html {
+            background: none;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .widget-container {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: none;
+            /* Personaliza la imagen de fondo aquí cambiando la URL */
+            background-image: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExajcxdTR6cjc0Y2M3Mmd6YWsyMzM4aDQxbXR1bXJydHQ2NGxiZ3oyZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BnGg8rtcUFv4k/giphy.gif'); /* Cambia esta URL por tu imagen o GIF */
+            background-size: cover;
+            background-position: center;
+        }
+        .date-time {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            border-radius: 5px;
+            text-shadow: 1px 1px 2px black;
+        }
+        .calendar {
+            font-size: 12px;
+            text-align: center;
+        }
+        .calendar table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .calendar th, .calendar td {
+            padding: 2px 4px;
+            border: 1px solid #ccc;
+            color: #000;
+        }
+        .calendar th {
+            background-color: rgba(240, 240, 240, 0.9);
+        }
+        .today {
+            background-color: rgba(255, 255, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="widget-container">
+        <div class="date-time" id="date-time"></div>
+        <div class="calendar" id="calendar"></div>
+    </div>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById('date-time').textContent = now.toLocaleDateString('es-ES', options);
+        }
+
+        function generateCalendar() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth();
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+            const today = now.getDate();
+
+            let html = '<table><tr><th>D</th><th>L</th><th>M</th><th>M</th><th>J</th><th>V</th><th>S</th></tr><tr>';
+            let day = 1;
+            for (let i = 0; i < 42; i++) {
+                if (i < firstDay || day > lastDate) {
+                    html += '<td></td>';
+                } else {
+                    const className = day === today ? 'today' : '';
+                    html += `<td class="${className}">${day}</td>`;
+                    day++;
+                }
+                if ((i + 1) % 7 === 0) {
+                    html += '</tr><tr>';
+                }
+            }
+            html += '</tr></table>';
+            document.getElementById('calendar').innerHTML = html;
+        }
+
+        updateDateTime();
+        generateCalendar();
+        setInterval(updateDateTime, 1000); // Actualiza la hora cada segundo
+    </script>
+</body>
+</html>
