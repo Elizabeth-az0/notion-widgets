@@ -1,91 +1,137 @@
+<!-- Declaración del tipo de documento HTML5 -->
 <!DOCTYPE html>
+
+<!-- Elemento raíz del documento HTML con idioma establecido en español -->
 <html lang="es">
+
+<!-- Sección head que contiene metadatos y estilos -->
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Widget de Links</title>
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-    background-color: #f7f7f5; /* Un fondo claro que combina con Notion */
-    margin: 0;
-    padding: 15px;
-  }
-  .widget-container {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    background-color: #ffffff;
-    max-width: 400px;
-    margin: auto;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
-  h2 {
-    font-size: 20px;
-    color: #333;
-    margin-top: 0;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  li {
-    margin-bottom: 12px;
-  }
-  a {
-    text-decoration: none;
-    color: #007bff; /* Un color de enlace estándar y accesible */
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.2s ease;
-    padding: 8px;
-    border-radius: 4px;
-  }
-  a:hover {
-    background-color: #f0f0f0;
-  }
-  .icon {
-    margin-right: 10px;
-    font-size: 20px;
-  }
-</style>
+
+  <!-- Codificación de caracteres UTF-8 para soporte de caracteres especiales -->
+  <meta charset="UTF-8">
+
+  <!-- Configuración del viewport para diseño responsivo en dispositivos móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título de la página que aparece en la pestaña del navegador -->
+  <title>Widget de Links</title>
+
+  <!-- Estilos CSS embebidos para el diseño del widget -->
+  <style>
+
+    /* Estilos para el cuerpo de la página: fuente, fondo y márgenes */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+      background-color: #ffffff; /* Fondo blanco puro */
+      margin: 0;
+      padding: 15px;
+    }
+
+    /* Contenedor principal del widget: borde, fondo y sombras */
+    .widget-container {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #ffffff;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    /* Estilos para el encabezado h2: tamaño, color y borde inferior */
+    h2 {
+      font-size: 20px;
+      color: #333;
+      margin-top: 0;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    /* Estilos para la lista no ordenada: sin viñetas ni padding */
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* Estilos para cada elemento de la lista: margen inferior */
+    li {
+      margin-bottom: 12px;
+    }
+
+    /* Estilos para los enlaces: sin decoración, color azul, flexbox para icono y texto */
+    a {
+      text-decoration: none;
+      color: #007bff; /* Color de enlace estándar y accesible */
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.2s ease;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    /* Efecto hover para los enlaces: cambio de fondo al pasar el mouse */
+    a:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Estilos para el icono (emoji): margen derecho y tamaño */
+    .icon {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+  </style>
+
 </head>
+
+<!-- Sección body con el contenido principal de la página -->
 <body>
 
-<div class="widget-container">
-  <h2>Mis Links Rápidos</h2>
-  <ul>
-    <!-- INSTRUCCIONES: Reemplaza "#" con tu URL y "Nombre del Link" con el texto que quieras -->
-    
-    <li>
-      <a href="#"> <!-- <-- Pega tu URL aquí -->
-        <span class="icon">🔗</span> <!-- Puedes cambiar el emoji -->
-        <span>Nombre del Link 1</span> <!-- <-- Escribe el nombre aquí -->
-      </a>
-    </li>
-    
-    <li>
-      <a href="#"> <!-- <-- Pega tu URL aquí -->
-        <span class="icon">📄</span> <!-- Puedes cambiar el emoji -->
-        <span>Nombre del Link 2</span> <!-- <-- Escribe el nombre aquí -->
-      </a>
-    </li>
+  <!-- Contenedor principal del widget de enlaces -->
+  <div class="widget-container">
 
-    <li>
-      <a href="#"> <!-- <-- Pega tu URL aquí -->
-        <span class="icon">💡</span> <!-- Puedes cambiar el emoji -->
-        <span>Nombre del Link 3</span> <!-- <-- Escribe el nombre aquí -->
-      </a>
-    </li>
+    <!-- Título del widget -->
+    <h2>Mis Links Rápidos</h2>
 
-    <!-- Agrega más links copiando y pegando la estructura de arriba -->
+    <!-- Lista no ordenada que contiene los enlaces -->
+    <ul>
 
-  </ul>
-</div>
+      <!-- Instrucciones para personalizar los enlaces: reemplazar placeholders -->
+      <!-- INSTRUCCIONES: Reemplaza "#" con tu URL y "Nombre del Link" con el texto que quieras -->
+
+      <!-- Primer elemento de enlace -->
+      <li>
+        <a href="#"> <!-- Pega tu URL aquí -->
+          <span class="icon">🔗</span> <!-- Emoji que representa el enlace, puedes cambiarlo -->
+          <span>Nombre del Link 1</span> <!-- Texto del enlace, escríbelo aquí -->
+        </a>
+      </li>
+
+      <!-- Segundo elemento de enlace -->
+      <li>
+        <a href="#"> <!-- Pega tu URL aquí -->
+          <span class="icon">📄</span> <!-- Emoji que representa el enlace, puedes cambiarlo -->
+          <span>Nombre del Link 2</span> <!-- Texto del enlace, escríbelo aquí -->
+        </a>
+      </li>
+
+      <!-- Tercer elemento de enlace -->
+      <li>
+        <a href="#"> <!-- Pega tu URL aquí -->
+          <span class="icon">💡</span> <!-- Emoji que representa el enlace, puedes cambiarlo -->
+          <span>Nombre del Link 3</span> <!-- Texto del enlace, escríbelo aquí -->
+        </a>
+      </li>
+
+      <!-- Nota para agregar más enlaces copiando la estructura anterior -->
+      <!-- Agrega más links copiando y pegando la estructura de arriba -->
+
+    </ul>
+
+  </div>
 
 </body>
+
 </html>
