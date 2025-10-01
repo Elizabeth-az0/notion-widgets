@@ -1,13 +1,13 @@
-<!-- Declaración del tipo de documento HTML5 -->
+<!-- Declaración del tipo de documento HTML5 para asegurar compatibilidad moderna -->
 <!DOCTYPE html>
 
-<!-- Elemento raíz del documento HTML con idioma establecido en español -->
+<!-- Elemento raíz HTML con idioma establecido en español para accesibilidad -->
 <html lang="es">
 
-<!-- Sección head que contiene metadatos y estilos -->
+<!-- Sección head que contiene metadatos y estilos CSS -->
 <head>
 
-  <!-- Codificación de caracteres UTF-8 para soporte de caracteres especiales -->
+  <!-- Codificación de caracteres UTF-8 para soporte de caracteres especiales y emojis -->
   <meta charset="UTF-8">
 
   <!-- Configuración del viewport para diseño responsivo en dispositivos móviles -->
@@ -19,118 +19,200 @@
   <!-- Estilos CSS embebidos para el diseño del widget -->
   <style>
 
-    /* Estilos para el elemento html: fondo blanco para asegurar cobertura completa */
+    /* Elimina el fondo predeterminado del html para que se integre con el fondo del contenedor embebido (como Notion) */
     html {
-      background-color: #ffffff;
+      background: none;
     }
 
-    /* Estilos para el cuerpo de la página: fuente, fondo y márgenes */
+    /* Estilos para el cuerpo: fuente del sistema, sin márgenes, padding para espacio, flexbox para centrar el widget vertical y horizontalmente */
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-      background-color: #ffffff; /* Fondo blanco puro */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       margin: 0;
-      padding: 15px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
 
-    /* Contenedor principal del widget: borde, fondo blanco puro y sin sombras */
+    /* Contenedor principal del widget: fondo blanco (#ffffff) para contraste, borde gris claro (#e0e0e0) para definición sutil, esquinas redondeadas, padding interno, ancho máximo responsivo */
     .widget-container {
-      border: 1px solid #e0e0e0;
+      background: #ffffff; /* Blanco puro para el fondo del contenedor */
+      border: 1px solid #e0e0e0; /* Gris claro para un borde discreto */
       border-radius: 8px;
       padding: 20px;
-      background-color: #ffffff;
       max-width: 400px;
-      margin: auto;
+      width: 100%;
+      box-shadow: none;
     }
 
-    /* Estilos para el encabezado h2: tamaño, color y borde inferior */
+    /* Estilos para el título: tamaño grande, negrita, texto con gradiente rojo-dorado (#ff0000 a #ffd700) para estilo chino, centrado */
     h2 {
-      font-size: 20px;
-      color: #333;
-      margin-top: 0;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 10px;
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ff0000 0%, #ffd700 100%); /* Gradiente de rojo a dorado para el texto */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0 0 25px 0;
+      text-align: center;
     }
 
-    /* Estilos para la lista no ordenada: sin viñetas ni padding */
+    /* Lista no ordenada: sin viñetas, sin padding ni margen para lista limpia */
     ul {
       list-style-type: none;
       padding: 0;
       margin: 0;
     }
 
-    /* Estilos para cada elemento de la lista: margen inferior */
+    /* Elementos de lista: margen inferior pequeño para separación entre enlaces */
     li {
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
-    /* Estilos para los enlaces: sin decoración, color azul, flexbox para icono y texto */
+    /* Enlaces: sin decoración de texto, color gris oscuro (#2d3748) para texto, flexbox para alinear icono y texto, padding reducido, fondo gris muy claro (#f7fafc), borde transparente para efecto hover, esquinas redondeadas */
     a {
       text-decoration: none;
-      color: #007bff; /* Color de enlace estándar y accesible */
+      color: #2d3748; /* Gris oscuro para el texto de los enlaces */
       font-size: 16px;
+      font-weight: 500;
       display: flex;
       align-items: center;
-      transition: background-color 0.2s ease;
-      padding: 8px;
-      border-radius: 4px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: #f7fafc; /* Gris muy claro para el fondo de los enlaces */
+      border: 2px solid transparent;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
 
-    /* Efecto hover para los enlaces: cambio de fondo al pasar el mouse */
+    /* Pseudo-elemento ::before para crear un fondo gradiente que aparece en hover */
+    a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #ff0000 0%, #ffd700 100%); /* Gradiente rojo-dorado para el fondo en hover */
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    /* Muestra el gradiente en hover cambiando la opacidad */
+    a:hover::before {
+      opacity: 1;
+    }
+
+    /* Efectos en hover: desliza a la derecha, cambia borde a rojo (#ff0000), agrega sombra roja translúcida */
     a:hover {
-      background-color: #f0f0f0;
+      transform: translateX(8px);
+      border-color: #ff0000; /* Rojo para el borde en hover */
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4); /* Sombra roja con transparencia */
     }
 
-    /* Estilos para el icono (emoji): margen derecho y tamaño */
+    /* Asegura que icono y texto estén por encima del gradiente en hover */
+    a:hover .icon,
+    a:hover span {
+      position: relative;
+      z-index: 1;
+      color: #ffffff; /* Blanco para texto e icono sobre el gradiente */
+    }
+
+    /* Estado activo: efecto de presión sutil */
+    a:active {
+      transform: translateX(6px) scale(0.98);
+    }
+
+    /* Iconos: margen derecho, tamaño grande, transición para animación */
     .icon {
-      margin-right: 10px;
-      font-size: 20px;
+      margin-right: 14px;
+      font-size: 24px;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Animación del icono en hover: escala y rota ligeramente */
+    a:hover .icon {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    /* Span para el texto: posición relativa para z-index */
+    span {
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s ease;
+    }
+
+    /* Media query para pantallas pequeñas: reduce padding del contenedor y tamaño del título */
+    @media (max-width: 480px) {
+      .widget-container {
+        padding: 25px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
     }
 
   </style>
 
 </head>
 
-<!-- Sección body con el contenido principal de la página -->
+<!-- Sección body con el contenido centrado -->
 <body>
 
-  <!-- Contenedor principal del widget de enlaces -->
+  <!-- Contenedor del widget centrado -->
   <div class="widget-container">
 
-    <!-- Título del widget -->
+    <!-- Título del widget con gradiente -->
     <h2>Mis Links Rápidos</h2>
 
-    <!-- Lista no ordenada que contiene los enlaces -->
+    <!-- Lista de enlaces -->
     <ul>
 
-      <!-- Instrucciones para personalizar los enlaces: reemplazar placeholders -->
-      <!-- INSTRUCCIONES: Reemplaza "#" con tu URL y "Nombre del Link" con el texto que quieras -->
-
-      <!-- Primer elemento de enlace -->
+      <!-- Primer enlace con icono de enlace -->
       <li>
-        <a href="#"> <!-- Pega tu URL aquí -->
-          <span class="icon">🔗</span> <!-- Emoji que representa el enlace, puedes cambiarlo -->
-          <span>Nombre del Link 1</span> <!-- Texto del enlace, escríbelo aquí -->
+        <a href="#">
+          <span class="icon">🔗</span>
+          <span>Nombre del Link 1</span>
         </a>
       </li>
 
-      <!-- Segundo elemento de enlace -->
+      <!-- Segundo enlace con icono de documento -->
       <li>
-        <a href="#"> <!-- Pega tu URL aquí -->
-          <span class="icon">📄</span> <!-- Emoji que representa el enlace, puedes cambiarlo -->
-          <span>Nombre del Link 2</span> <!-- Texto del enlace, escríbelo aquí -->
+        <a href="#">
+          <span class="icon">📄</span>
+          <span>Nombre del Link 2</span>
         </a>
       </li>
 
-      <!-- Tercer elemento de enlace -->
+      <!-- Tercer enlace con icono de bombilla -->
       <li>
-        <a href="#"> <!-- Pega tu URL aquí -->
-          <span class="icon">💡</span> <!-- Emoji que representa el enlace, puedes cambiarlo -->
-          <span>Nombre del Link 3</span> <!-- Texto del enlace, escríbelo aquí -->
+        <a href="#">
+          <span class="icon">💡</span>
+          <span>Nombre del Link 3</span>
         </a>
       </li>
 
-      <!-- Nota para agregar más enlaces copiando la estructura anterior -->
-      <!-- Agrega más links copiando y pegando la estructura de arriba -->
+      <!-- Cuarto enlace con icono de cohete -->
+      <li>
+        <a href="#">
+          <span class="icon">🚀</span>
+          <span>Nombre del Link 4</span>
+        </a>
+      </li>
+
+      <!-- Quinto enlace con icono de estrella -->
+      <li>
+        <a href="#">
+          <span class="icon">⭐</span>
+          <span>Nombre del Link 5</span>
+        </a>
+      </li>
 
     </ul>
 
